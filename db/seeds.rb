@@ -1,7 +1,19 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+%w[6-306 7-105 6-201].each do |room|
+  Room.create!(name: room)
+end
+
+6.times do |i|
+  StudentGroup.create!(name: "ИСТ-#{i}")
+end
+
+['8:00-9:35', '9:45-11:20', '12:10-13:45', '13:55-15:30', '16:10-17:45', '17:55-19:30', '20:05-21:40'].each_with_index do |time, i|
+  SubjectTimePeriod.create!(name: time, position: i)
+end
+
+%w(АИС Программирование Мат.Логика).each do |name|
+  Subject.create!(name: name)
+end
+
+%w[Иванцов Платонов Сидоров].each do |name| 
+  Lecturer.create!(name: name)
+end
