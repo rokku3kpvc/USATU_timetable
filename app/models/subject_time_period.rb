@@ -1,0 +1,2 @@
+class SubjectTimePeriod < ApplicationRecord
+end

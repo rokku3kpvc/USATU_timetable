@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  weeks: MyString
+  subject_time_periods: one
+  subgroup: 1
+  room: one
+  day_of_week: 1
+  lecturer: one
+
+two:
+  weeks: MyString
+  subject_time_periods: two
+  subgroup: 1
+  room: two
+  day_of_week: 1
+  lecturer: two
