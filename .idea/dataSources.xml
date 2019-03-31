@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Rails USATU_timetable: test" uuid="c8fd9023-3875-4b56-bc40-75e3da12ccbd">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/USATU_timetable_test</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails USATU_timetable: production" uuid="374009f8-8392-46a2-a339-d207e0334c4f">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/USATU_timetable_production</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="Rails USATU_timetable: development" uuid="3b4b0f45-6a44-4b1d-92b1-3514670c5eff">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/config/database.yml</remarks>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://127.0.0.1:5432/USATU_timetable_development</jdbc-url>
+    </data-source>
+  </component>
+</project>
