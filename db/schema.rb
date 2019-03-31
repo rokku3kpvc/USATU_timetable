@@ -48,11 +48,12 @@ ActiveRecord::Schema.define(version: 2019_03_31_150445) do
 
   create_table "timetable_records", force: :cascade do |t|
     t.string "weeks"
-    t.bigint "subject_time_period_id", null: false
-    t.bigint "subject_id", null: false
     t.integer "subgroup"
-    t.bigint "room_id", null: false
     t.integer "day_of_week"
+    t.bigint "subject_time_period_id", null: false
+    t.bigint "timetable_id", null: false
+    t.bigint "subject_id", null: false
+    t.bigint "room_id", null: false
     t.bigint "lecturer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(version: 2019_03_31_150445) do
     t.index ["room_id"], name: "index_timetable_records_on_room_id"
     t.index ["subject_id"], name: "index_timetable_records_on_subject_id"
     t.index ["subject_time_period_id"], name: "index_timetable_records_on_subject_time_period_id"
+    t.index ["timetable_id"], name: "index_timetable_records_on_timetable_id"
   end
 
   create_table "timetables", force: :cascade do |t|
@@ -73,5 +75,6 @@ ActiveRecord::Schema.define(version: 2019_03_31_150445) do
   add_foreign_key "timetable_records", "rooms"
   add_foreign_key "timetable_records", "subject_time_periods"
   add_foreign_key "timetable_records", "subjects"
+  add_foreign_key "timetable_records", "timetables"
   add_foreign_key "timetables", "student_groups"
 end

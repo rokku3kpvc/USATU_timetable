@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  resources :timetables, only: %i[index]
+
+  get '/search' => 'timetables#show', as: :search_timetable_by_group
+
+  root to: 'timetables#index'
 end
