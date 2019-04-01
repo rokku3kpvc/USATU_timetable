@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_054141) do
+ActiveRecord::Schema.define(version: 2019_04_01_110807) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,14 @@ ActiveRecord::Schema.define(version: 2019_04_01_054141) do
 
   create_table "subjects", force: :cascade do |t|
     t.string "name", null: false
+    t.integer "s_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "timetable_records", force: :cascade do |t|
-    t.string "weeks"
     t.integer "subgroup"
+    t.date "day_date"
     t.integer "day_of_week"
     t.bigint "subject_time_period_id", null: false
     t.bigint "timetable_id", null: false
@@ -65,11 +66,13 @@ ActiveRecord::Schema.define(version: 2019_04_01_054141) do
     t.bigint "lecturer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "week_id", null: false
     t.index ["lecturer_id"], name: "index_timetable_records_on_lecturer_id"
     t.index ["room_id"], name: "index_timetable_records_on_room_id"
     t.index ["subject_id"], name: "index_timetable_records_on_subject_id"
     t.index ["subject_time_period_id"], name: "index_timetable_records_on_subject_time_period_id"
     t.index ["timetable_id"], name: "index_timetable_records_on_timetable_id"
+    t.index ["week_id"], name: "index_timetable_records_on_week_id"
   end
 
   create_table "timetables", force: :cascade do |t|
@@ -92,11 +95,18 @@ ActiveRecord::Schema.define(version: 2019_04_01_054141) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "weeks", force: :cascade do |t|
+    t.integer "w_num", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   add_foreign_key "student_groups", "student_courses"
   add_foreign_key "timetable_records", "lecturers"
   add_foreign_key "timetable_records", "rooms"
   add_foreign_key "timetable_records", "subject_time_periods"
   add_foreign_key "timetable_records", "subjects"
   add_foreign_key "timetable_records", "timetables"
+  add_foreign_key "timetable_records", "weeks"
   add_foreign_key "timetables", "student_groups"
 end

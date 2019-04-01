@@ -12,9 +12,9 @@ class TimetablesController < ApplicationController
       end
       return
     end
-    @records = group.timetable.timetable_records.preload(
-        :subject, :lecturer, :room, :subject_time_period
-    ).group_by(&:day_of_week)
+    @records = group.timetable.timetable_records
+    @records = @records.where(week: params[:week]) if params[:semester] != '1'
+    @records = @records.preload(:subject, :lecturer, :room, :subject_time_period).group_by(&:day_of_week)
     respond_to do |format|
       format.html
       format.js
