@@ -1,0 +1,22 @@
+%table
+  %thead
+    %tr
+      %th Недели
+      %th Время
+      %th Предмет
+      %th Подгруппа
+      %th Кабинет
+      %th Преподаватель
+  %tbody
+    - @records.each do |day_of_week, records|
+      %tr
+        %td{:colspan => '6'}= day_of_week
+      - records = records.sort_by { |r| r.subject_time_period.position }
+      - records.each do |record|
+        %tr
+          %td= record.weeks
+          %td= record.subject_time_period.name
+          %td= record.subject.name
+          %td= record.subgroup
+          %td= record.room.name
+          %td= record.lecturer.name

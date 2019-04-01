@@ -6,8 +6,11 @@ class TimetablesController < ApplicationController
     if group.blank?
       flash[:error] = 'Группа не найдена'
       redirect_to root_path
+      return
     end
-    
-    @timetable = @group
+
+    @records = group.timetable.timetable_records.preload(
+        :subject, :lecturer, :room, :subject_time_period
+    ).group_by(&:day_of_week)
   end
 end

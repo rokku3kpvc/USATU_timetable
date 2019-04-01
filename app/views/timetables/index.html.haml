@@ -1,3 +1,3 @@
 = form_tag search_timetable_by_group_path, method: :get do
-    = text_field_tag 'group', ''
+    = select_tag 'group', options_for_select(StudentGroup.all.map(&:name))
     = submit_tag 'Search'

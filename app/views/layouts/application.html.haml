@@ -9,4 +9,6 @@
 
     %body
       = flash[:error]&.html_safe
+      = flash[:notice]&.html_safe
+      = flash[:alert]&.html_safe
       = yield
