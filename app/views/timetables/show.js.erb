@@ -1,0 +1,13 @@
+$(function() {
+    if ($('body').children().hasClass('timetable')) {
+        $('.timetable').remove();
+        render_timetable();
+    }
+    else {
+        render_timetable();
+    }
+});
+
+function render_timetable() {
+    $('.group-find-block').after('<%= j render('timetable') %>')
+}

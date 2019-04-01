@@ -1,0 +1,4 @@
+= form_tag search_timetable_by_group_path, method: :get, remote: true do
+  = select_tag 'course', options_for_select(StudentCourse.all.map(&:name)), prompt: '-'*5
+  = select_tag 'group', '', prompt: '-'*5
+  = submit_tag 'Открыть'
