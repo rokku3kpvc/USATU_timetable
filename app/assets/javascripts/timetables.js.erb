@@ -1,0 +1,17 @@
+function autofill_search_params() {
+    let s_params = $('.search-params').data('search-params');
+    console.log(s_params);
+    if (typeof s_params !== 'undefined') {
+        document.getElementById('course').value = s_params['course'];
+        document.getElementById('course').dispatchEvent(new Event('click'));
+        document.getElementById('group').value = s_params['group'];
+        if (s_params['semester'] == '1') {
+            document.getElementById('semester').checked = true;
+        }
+        else {
+            document.getElementById('week').value = s_params['week'];
+        }
+    }
+}
+
+window.onload = autofill_search_params;

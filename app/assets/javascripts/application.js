@@ -2,6 +2,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require timetables
 
 $(function () {
    $('select#course').on('click', function() {
