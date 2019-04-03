@@ -4,7 +4,9 @@ class TimetableRecord < ApplicationRecord
   belongs_to :subject
   belongs_to :room
   belongs_to :lecturer
-  belongs_to :week
+  has_and_belongs_to_many :weeks
+  # has_many :weeks
+  # belongs_to :week
 
   enum day_of_week: %i[Понедельник Вторник Среда Четверг Пятница Суббота]
 end

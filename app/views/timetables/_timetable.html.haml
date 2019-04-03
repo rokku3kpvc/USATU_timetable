@@ -16,9 +16,9 @@
         - records.each do |record|
           %tr
             - if session[:search_params]['semester'] == '1'
-              %td= record.weeks_duration
+              %td= record
             - else
-              %td= record.week.w_num
+              %td= record
             %td= record.subject_time_period.name
             %td= "#{record.subject.name} (#{record.subject.s_type})"
             %td= record.subgroup

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_02_110903) do
+ActiveRecord::Schema.define(version: 2019_04_03_034748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,14 +66,18 @@ ActiveRecord::Schema.define(version: 2019_04_02_110903) do
     t.bigint "lecturer_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "week_id", null: false
-    t.string "weeks_duration"
     t.index ["lecturer_id"], name: "index_timetable_records_on_lecturer_id"
     t.index ["room_id"], name: "index_timetable_records_on_room_id"
     t.index ["subject_id"], name: "index_timetable_records_on_subject_id"
     t.index ["subject_time_period_id"], name: "index_timetable_records_on_subject_time_period_id"
     t.index ["timetable_id"], name: "index_timetable_records_on_timetable_id"
-    t.index ["week_id"], name: "index_timetable_records_on_week_id"
+  end
+
+  create_table "timetable_records_weeks", id: false, force: :cascade do |t|
+    t.bigint "week_id", null: false
+    t.bigint "timetable_record_id", null: false
+    t.index ["timetable_record_id"], name: "index_timetable_records_weeks_on_timetable_record_id"
+    t.index ["week_id"], name: "index_timetable_records_weeks_on_week_id"
   end
 
   create_table "timetables", force: :cascade do |t|
@@ -108,6 +112,5 @@ ActiveRecord::Schema.define(version: 2019_04_02_110903) do
   add_foreign_key "timetable_records", "subject_time_periods"
   add_foreign_key "timetable_records", "subjects"
   add_foreign_key "timetable_records", "timetables"
-  add_foreign_key "timetable_records", "weeks"
   add_foreign_key "timetables", "student_groups"
 end

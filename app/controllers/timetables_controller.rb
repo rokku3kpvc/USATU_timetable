@@ -27,7 +27,23 @@ class TimetablesController < ApplicationController
 
   def records_form(group)
     @records = group.timetable.timetable_records
-    @records = @records.where(week: params[:week]) if params[:semester] != '1'
+    # @records = @records.where(week: params[:week]) if params[:semester] != '1'
+    if params[:semester] != '1'
+      @records.clear()
+      @records.each do |record|
+        puts "iteration for #{record}"
+        record.weeks.each do |week|
+          puts "iteration for #{week}"
+          puts "good" if week.w_num.to_s == params[:week]
+          filtered_records.push(record) if week.w_num.to_s == params[:week]
+        end
+      end
+      # @records = @filtered_records if @filtered_records != nil
+      if !filtered_records.empty?
+
+      end
+    end
     @records = @records.preload(:subject, :lecturer, :room, :subject_time_period).group_by(&:day_of_week)
+    puts @records
   end
 end
