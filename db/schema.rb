@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_01_110807) do
+ActiveRecord::Schema.define(version: 2019_04_02_110903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2019_04_01_110807) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "week_id", null: false
+    t.string "weeks_duration"
     t.index ["lecturer_id"], name: "index_timetable_records_on_lecturer_id"
     t.index ["room_id"], name: "index_timetable_records_on_room_id"
     t.index ["subject_id"], name: "index_timetable_records_on_subject_id"

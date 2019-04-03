@@ -3,8 +3,7 @@ function autofill_search_params() {
     console.log(s_params);
     if (typeof s_params !== 'undefined') {
         document.getElementById('course').value = s_params['course'];
-        document.getElementById('course').dispatchEvent(new Event('click'));
-        document.getElementById('group').value = s_params['group'];
+        $('#course').click();
         if (s_params['semester'] == '1') {
             document.getElementById('semester').checked = true;
         }

@@ -1,1 +1,2 @@
 $('select#group').html('<%= j options_from_collection_for_select(@groups, :name, :name) %>');
+document.getElementById('group').value = $('.search-params').data('search-params')['group'];
