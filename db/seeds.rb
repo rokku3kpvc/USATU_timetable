@@ -1,6 +1,6 @@
-%w[6-306 7-105 6-201].each do |room|
-  Room.create!(name: room)
-end
+# %w[6-306 7-105 6-201].each do |room|
+#   Room.create!(name: room)
+# end
 
 %W[Первый Второй Третий Четвёртый Пятый Шестой].each do |course|
   StudentCourse.create!(name: course)
@@ -10,22 +10,24 @@ end
   SubjectTimePeriod.create!(name: time, position: i)
 end
 
-%w(АИС Программирование Мат.Логика).each do |name|
-  Subject.create!(name: name, s_type: 0)
-end
+# %w(АИС Программирование Мат.Логика).each do |name|
+#   Subject.create!(name: name, s_type: 0)
+# end
 
-%w[Иванцов Платонов Сидоров].each do |name|
-  Lecturer.create!(name: name)
-end
+# %w[Иванцов Платонов Сидоров].each do |name|
+#   Lecturer.create!(name: name)
+# end
 
 18.times do |i|
   Week.create!(w_num: i)
 end
 
+# Subject.create!(name: 'Обработка данных дистанционного зондирования Земли')
+
 User.create!(email: 'ykwnd@yahoo.com', password: 'test1234', role: 1)
 
-StudentGroup.create!(name: 'ИСТ-108', student_course: StudentCourse.find(1))
-StudentGroup.create!(name: 'ИСТ-109', student_course: StudentCourse.find(1))
-StudentGroup.create!(name: 'ИСТ-207', student_course: StudentCourse.find(2))
-StudentGroup.create!(name: 'ИСТ-306', student_course: StudentCourse.find(3))
-StudentGroup.create!(name: 'ИСТ-307', student_course: StudentCourse.find(3))
+# StudentGroup.create!(name: 'ИСТ-108', student_course: StudentCourse.find(1))
+# StudentGroup.create!(name: 'ИСТ-109', student_course: StudentCourse.find(1))
+# StudentGroup.create!(name: 'ИСТ-207', student_course: StudentCourse.find(2))
+# StudentGroup.create!(name: 'ИСТ-306', student_course: StudentCourse.find(3))
+# StudentGroup.create!(name: 'ИСТ-307', student_course: StudentCourse.find(3))

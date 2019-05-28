@@ -2,10 +2,12 @@
   %table.timetable
     %thead
       %tr
-        %th Недели
+        -if session[:search_params]['semester'] == '1'
+          %th Недели
         %th Время
         %th Предмет
-        %th Подгруппа
+        -if session[:search_params]['semester'] != '1'
+          %th Подгруппа
         %th Кабинет
         %th Преподаватель
     %tbody
@@ -16,12 +18,11 @@
         - records.each do |record|
           %tr
             - if session[:search_params]['semester'] == '1'
-              %td= record
-            - else
-              %td= record
+              %td= "#{record.weeks.first.w_num}-#{record.weeks.last.w_num}"
             %td= record.subject_time_period.name
             %td= "#{record.subject.name} (#{record.subject.s_type})"
-            %td= record.subgroup
+            -if session[:search_params]['semester'] != '1'
+              %td= record.subgroup
             %td= record.room.name
             %td= record.lecturer.name
 - else
