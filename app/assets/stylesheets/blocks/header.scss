@@ -1,0 +1,7 @@
+header {
+  background: #ccc;
+  opacity: 0.5;
+  @include media-breakpoint-up(xs){
+    height: 7vh;
+  }
+}

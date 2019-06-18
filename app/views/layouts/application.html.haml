@@ -6,7 +6,8 @@
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': ''
+    %meta{:name => :"viewport", :content => :"width=device-width, initial-scale=1, shrink-to-fit=no"}
     %body
       = flash[:error]&.html_safe
       = flash[:notice]&.html_safe

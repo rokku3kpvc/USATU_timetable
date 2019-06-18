@@ -6,8 +6,6 @@
           %th Недели
         %th Время
         %th Предмет
-        -if session[:search_params]['semester'] != '1'
-          %th Подгруппа
         %th Кабинет
         %th Преподаватель
     %tbody
@@ -21,8 +19,6 @@
               %td= "#{record.weeks.first.w_num}-#{record.weeks.last.w_num}"
             %td= record.subject_time_period.name
             %td= "#{record.subject.name} (#{record.subject.s_type})"
-            -if session[:search_params]['semester'] != '1'
-              %td= record.subgroup
             %td= record.room.name
             %td= record.lecturer.name
 - else

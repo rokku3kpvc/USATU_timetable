@@ -1,4 +1,3 @@
-# TODO restructure DB and make 3 timetables for each group:
 # semester, for_each_week & session.
 
 class TimetablesController < ApplicationController

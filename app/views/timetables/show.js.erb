@@ -1,13 +1,16 @@
+//TODO fix bug with timetable class (recreate)
 $(function() {
-    if ($('body').children().hasClass('timetable')) {
+    if ($('.timetable__content').children().hasClass('timetable')) { //change if way to .timetable changed
         $('.timetable').remove();
         render_timetable();
+        $('.timetable__content').removeClass('d-none');
     }
     else {
         render_timetable();
+        $('.timetable__content').removeClass('d-none');
     }
 });
 
 function render_timetable() {
-    $('.group-find-block').after('<%= j render('timetable') %>')
+    $('.timetable__content').append('<%= j render('timetable') %>')
 }

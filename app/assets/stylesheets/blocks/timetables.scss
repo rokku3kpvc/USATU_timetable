@@ -1,0 +1,19 @@
+main {
+  @include make-container();
+  .timetable__block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.timetable__description {
+  margin: 10px 0 10px 0;
+}
+
+.timetable__content {
+  padding: 5px;
+  border: 1px solid #eee;
+  box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
+  background: #eee;
+}

@@ -1,3 +1,10 @@
-=content_tag :div, '', class: 'search-params', data: { search_params: session[:search_params] }
-.group-find-block
-  = render 'form'
+%header
+
+%main
+  .timetable__block
+    .timetable__description
+      =content_tag :div, '', class: 'search-params', data: { search_params: session[:search_params] }
+      .group-find-block
+        = render 'form'
+    .timetable__content.d-none
+%footer

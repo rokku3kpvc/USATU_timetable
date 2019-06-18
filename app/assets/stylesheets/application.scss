@@ -1,0 +1,12 @@
+//import libs
+@import "bootstrap";
+
+//import other stylesheets
+@import "variables";
+@import "mixins";
+@import "fonts";
+@import "global";
+
+//import blocks
+@import "blocks/header";
+@import "blocks/timetables";
