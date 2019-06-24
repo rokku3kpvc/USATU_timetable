@@ -1,17 +1,17 @@
 - if !@records.empty?
   %table.timetable
-    %thead
-      %tr
-        -if session[:search_params]['semester'] == '1'
-          %th Недели
-        %th Время
-        %th Предмет
-        %th Кабинет
-        %th Преподаватель
-    %tbody
-      - @records.each do |day_of_week, records|
+    - @records.each do |day_of_week, records|
+      %thead
         %tr
           %td{:colspan => '6'}= day_of_week
+        %tr
+          -if session[:search_params]['semester'] == '1'
+            %th Недели
+          %th Время
+          %th Предмет
+          %th Кабинет
+          %th Преподаватель
+      %tbody
         - records = records.sort_by { |r| r.subject_time_period.position }
         - records.each do |record|
           %tr
