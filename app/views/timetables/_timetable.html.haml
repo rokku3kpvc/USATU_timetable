@@ -3,7 +3,7 @@
     - @records.each do |day_of_week, records|
       %thead
         %tr
-          %td{:colspan => '6'}= day_of_week
+          %td.dayofweek_title{:colspan => '6'}= day_of_week
         %tr
           -if session[:search_params]['semester'] == '1'
             %th Недели

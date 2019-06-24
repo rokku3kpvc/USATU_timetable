@@ -1,14 +1,23 @@
 main {
   @include make-container();
   .timetable__block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @include flex-system(auto, column, center);
+    margin-top: 10px;
+    @include media-breakpoint-up(sm){
+      margin-top: unset;
+    }
   }
 }
 
 .timetable__description {
-  margin: 10px 0 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 10vh;
+  @include flex-system(center, auto, center);
+  @include media-breakpoint-up(sm){
+    position: unset;
+  }
 }
 
 .timetable__content {
@@ -16,4 +25,12 @@ main {
   border: 1px solid #eee;
   box-shadow: 0 0 5px 0px rgba(0,0,0,0.3);
   background: #eee;
+}
+
+.dayofweek_title {
+  font-size: 14px;
+}
+
+.timetable {
+  //height: 70vh;
 }
