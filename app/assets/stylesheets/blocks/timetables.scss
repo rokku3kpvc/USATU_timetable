@@ -47,5 +47,21 @@ main {
 }
 
 .timetable {
-  //height: 70vh;
+  thead {
+    @include grid-system(auto, 1fr 1fr, auto);
+    >:nth-child(2) {
+      @include grid-system(1fr 2.5fr 1fr 2.5fr, auto, auto);
+      justify-items: center;
+      align-items: center;
+    }
+  }
+  tbody {
+    display: grid;
+    tr {
+      @include grid-system(1fr 2.5fr 1fr 2.5fr, auto, auto);
+      justify-items: center;
+      align-items: center;
+      border-top: 1px solid #ddd;
+    }
+  }
 }
